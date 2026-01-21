@@ -8,6 +8,8 @@ on:
       - 'deskbird.py'
       - 'Dockerfile'
       - 'requirements.txt'
+      - '.dockerignore'
+      - '.github/workflows/docker-publish.yml'
 
   workflow_dispatch:
 
