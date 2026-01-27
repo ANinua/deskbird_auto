@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   deskbird-auto:
-    build: .
+    image: amaghast/deskbird-auto:latest
     container_name: deskbird-auto
     ports:
       - "2713:2713"
@@ -9,4 +9,5 @@ services:
       - DESKBIRD_EMAIL=${DESKBIRD_EMAIL}
       - DESKBIRD_PASSWORD=${DESKBIRD_PASSWORD}
       - DESKBIRD_APP_KEY=${DESKBIRD_APP_KEY}
+      - TZ=Europe/Paris
     restart: unless-stopped
