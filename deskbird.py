@@ -201,6 +201,7 @@ def main():
             "Sun": 6
         }
         target_days = config.get('target_days', [])
+        exclude_dates = set(config.get('exclude_dates', []))
         
         for day_str in target_days:
             if day_str not in weekdays_map:
@@ -221,6 +222,9 @@ def main():
                 print(f"No suitable upcoming {day_str} within 11 days found. Skipping.")
                 continue
             for target_date in target_dates:
+                if target_date in exclude_dates:
+                    print(f"Skipping {target_date} (excluded)")
+                    continue
                 # Book seat
                 for seat in config['favorite_seats']: # We loop through all available seats in order 
                     result = book_seat(
